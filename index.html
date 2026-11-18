@@ -1,0 +1,567 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#d9edff">
+<title>Para minha Kalyne 💙</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Pacifico&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Nunito', sans-serif;
+  background: #eff7ff;
+  color: #405b78;
+  overflow-x: hidden;
+}
+
+.hero {
+  min-height: 100vh;
+  background: linear-gradient(145deg, #d9edff, #b9dcfa, #d9d5ff);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 35px 20px;
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-content {
+  max-width: 550px;
+  position: relative;
+  z-index: 2;
+}
+
+.tag {
+  display: inline-block;
+  background: #ffffffc9;
+  padding: 9px 18px;
+  border-radius: 30px;
+  color: #3978b8;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.bear {
+  font-size: 90px;
+  margin: 20px 0;
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: #3978b8;
+  font-size: clamp(40px, 10vw, 65px);
+  font-weight: 400;
+}
+
+.hero p {
+  line-height: 1.9;
+  margin: 18px auto;
+  font-size: 15px;
+}
+
+.btn {
+  background: linear-gradient(135deg, #65a9e8, #477fc4);
+  color: white;
+  border: none;
+  padding: 15px 25px;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 7px 18px #3978b840;
+  margin: 10px 0;
+}
+
+.music-player {
+  display: none;
+  margin: 20px auto 0;
+  max-width: 360px;
+  background: #ffffffd9;
+  padding: 15px;
+  border-radius: 18px;
+}
+
+.music-player iframe {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: none;
+  border-radius: 12px;
+}
+
+section {
+  padding: 70px 20px;
+  text-align: center;
+}
+
+.title {
+  font-family: 'Pacifico', cursive;
+  color: #3978b8;
+  font-size: 36px;
+  font-weight: 400;
+  margin-bottom: 12px;
+}
+
+.subtitle {
+  font-size: 14px;
+  line-height: 1.8;
+  margin: 0 auto 30px;
+}
+
+.gallery-section,
+.reasons {
+  background: #f7fbff;
+}
+
+.gallery {
+  max-width: 600px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.photo {
+  background: white;
+  padding: 9px 9px 15px;
+  border-radius: 17px;
+  box-shadow: 0 5px 20px #3978b820;
+}
+
+.photo img {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  object-fit: cover;
+  border-radius: 11px;
+  background: #dceeff;
+}
+
+.photo span {
+  display: block;
+  margin-top: 10px;
+  font-family: 'Pacifico', cursive;
+  color: #3978b8;
+}
+
+.about {
+  background: linear-gradient(145deg, #e0f0ff, #dce5ff);
+}
+
+.about-card {
+  max-width: 500px;
+  margin: auto;
+  background: #ffffffdf;
+  border-radius: 25px;
+  padding: 28px 22px;
+  line-height: 2;
+}
+
+.reason-list {
+  max-width: 480px;
+  margin: auto;
+  display: grid;
+  gap: 12px;
+}
+
+.reason {
+  background: white;
+  border: 1px solid #c9e2fa;
+  border-radius: 15px;
+  padding: 15px;
+  text-align: left;
+}
+
+.letter-section {
+  background: linear-gradient(135deg, #d8eaff, #e5e1ff);
+}
+
+.envelope {
+  font-size: 65px;
+  margin: 20px;
+}
+
+.letter {
+  display: none;
+  max-width: 520px;
+  margin: 20px auto;
+  background: #fff;
+  padding: 25px;
+  border-radius: 20px;
+  line-height: 2;
+  text-align: left;
+}
+
+.letter h3 {
+  font-family: 'Pacifico', cursive;
+  color: #3978b8;
+  font-size: 27px;
+  text-align: center;
+  font-weight: 400;
+  margin-bottom: 15px;
+}
+
+.final {
+  background: linear-gradient(145deg, #d9edff, #d9d5ff);
+  padding: 80px 20px;
+}
+
+.final-bear {
+  font-size: 75px;
+  margin-bottom: 15px;
+}
+
+.final p {
+  line-height: 2;
+  margin-top: 15px;
+}
+
+footer {
+  background: #f7fbff;
+  padding: 25px;
+  text-align: center;
+  font-size: 13px;
+  color: #6488ad;
+}
+
+/* Lírios decorativos */
+.lirio {
+  position: fixed;
+  z-index: 5;
+  pointer-events: none;
+  font-size: 30px;
+  opacity: 0.8;
+  animation: flutuar 4s ease-in-out infinite;
+}
+
+.l1 { top: 10%; left: 5%; }
+.l2 { top: 25%; right: 5%; animation-delay: 1s; }
+.l3 { top: 55%; left: 3%; animation-delay: 2s; }
+.l4 { top: 80%; right: 4%; animation-delay: 1.5s; }
+
+.floating {
+  position: fixed;
+  bottom: -40px;
+  pointer-events: none;
+  animation: subir 7s linear forwards;
+  z-index: 10;
+}
+
+@keyframes subir {
+  to {
+    transform: translateY(-110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+@keyframes flutuar {
+  0%, 100% {
+    transform: translateY(0) rotate(-8deg);
+  }
+  50% {
+    transform: translateY(-12px) rotate(8deg);
+  }
+}
+
+@media (max-width: 400px) {
+  .gallery {
+    gap: 10px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- Lírios azuis decorativos -->
+<div class="lirio l1">🪻</div>
+<div class="lirio l2">🪻</div>
+<div class="lirio l3">🪻</div>
+<div class="lirio l4">🪻</div>
+
+<header class="hero">
+
+  <div class="hero-content">
+
+    <span class="tag">UM PRESENTINHO PARA VOCÊ 💙</span>
+
+    <div class="bear">🧸</div>
+
+    <h1>Minha Kalyne</h1>
+
+    <p>
+      Fiz esse cantinho com muito carinho,
+      porque existe uma princesa que merece
+      receber todo amor e fofura do mundo.
+      E essa princesa é você! 💙
+    </p>
+
+    <button class="btn" onclick="abrirPresentinho()">
+      Abrir meu presentinho 🎀
+    </button>
+
+    <div class="music-player" id="musicPlayer">
+      <p>🎶 Nossa musiquinha especial</p>
+
+      <iframe
+        id="music"
+        title="Beijinho Gostoso"
+        allow="autoplay; encrypted-media; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+
+  </div>
+</header>
+
+<section class="gallery-section" id="fotos">
+
+  <h2 class="title">Meu pedacinho de céu 🪻</h2>
+
+  <p class="subtitle">
+    Quatro fotinhas de uma pessoa que deixa meus dias mais especiais. 💙
+  </p>
+
+  <div class="gallery">
+
+    <div class="photo">
+      <img src="foto1.jpg" alt="Foto da Kalyne">
+      <span>Minha princesa 🪻</span>
+    </div>
+
+    <div class="photo">
+      <img src="foto2.jpg" alt="Foto especial">
+      <span>Meu encanto 💙</span>
+    </div>
+
+    <div class="photo">
+      <img src="foto3.jpg" alt="Uma lembrança">
+      <span>Meu sorriso 🧸</span>
+    </div>
+
+    <div class="photo">
+      <img src="foto4.jpg" alt="Um momento especial">
+      <span>Minha felicidade ✨</span>
+    </div>
+
+  </div>
+</section>
+
+<section class="about">
+
+  <div class="about-card">
+
+    <div class="bear">🐻💙</div>
+
+    <h2 class="title">Um recadinho...</h2>
+
+    <p>
+      Kalyne, sei que você machucou seu joelhinho
+      e queria muito que pudesse melhorar logo.
+      Quero que descanse, cuide de você e tenha
+      paciência com sua recuperação.
+
+      Você merece carinho todos os dias,
+      principalmente nos momentos em que não
+      estiver tão bem. Nunca se esqueça de que
+      seu sorriso é muito especial! 💙
+    </p>
+
+  </div>
+</section>
+
+<section class="reasons">
+
+  <h2 class="title">10 motivos para te admirar</h2>
+
+  <p class="subtitle">
+    Algumas das infinitas coisas especiais em você. 🎀
+  </p>
+
+  <div class="reason-list">
+
+    <div class="reason">💙 01 — Seu jeitinho especial.</div>
+    <div class="reason">🪻 02 — Seu sorriso.</div>
+    <div class="reason">🧸 03 — Sua fofura.</div>
+    <div class="reason">✨ 04 — Sua maneira de ser.</div>
+    <div class="reason">💕 05 — Os momentos que compartilhamos.</div>
+    <div class="reason">🌷 06 — Sua companhia.</div>
+    <div class="reason">💌 07 — Seu carinho.</div>
+    <div class="reason">🥰 08 — A felicidade que você transmite.</div>
+    <div class="reason">🎀 09 — Cada detalhe seu.</div>
+    <div class="reason">💙 10 — Simplesmente por ser você.</div>
+
+  </div>
+</section>
+
+<section class="letter-section">
+
+  <h2 class="title">Uma cartinha secreta 💌</h2>
+
+  <p class="subtitle">
+    Tem uma mensagem guardada especialmente para você...
+  </p>
+
+  <div class="envelope">💌</div>
+
+  <button class="btn" onclick="abrirCarta()">
+    Abrir cartinha 💙
+  </button>
+
+  <div class="letter" id="carta">
+
+    <h3>Para minha Kalyne 💙</h3>
+
+    Oii, minha princesa!
+
+    Se você chegou até aqui, quero que saiba
+    que fiz cada pedacinho desse site pensando
+    em você.
+
+    Talvez seja apenas um site, com algumas
+    fotos e palavras, mas coloquei nele um
+    pouquinho do carinho que sinto por você.
+
+    Sei que seu joelhinho está machucado,
+    então quero te pedir uma coisinha:
+    cuide bastante de você, descanse e não
+    tenha pressa para melhorar.
+
+    Quero continuar compartilhando momentos
+    especiais com você e encontrando motivos
+    para fazer você sorrir.
+
+    <br><br>
+
+    Nunca esqueça:
+
+    <br>
+
+    Você é importante, merece ser cuidada
+    e merece todas as coisas boas do mundo.
+
+    <br><br>
+
+    <strong>Você é muito especial para mim! 💙</strong>
+
+    <br><br>
+
+    Com carinho,
+
+    <br>
+
+    <strong>Do seu quase namorado. 🧸</strong>
+
+  </div>
+</section>
+
+<section class="final">
+
+  <div class="final-bear">🧸💙</div>
+
+  <h2 class="title">Um último recadinho...</h2>
+
+  <p>
+    Se eu pudesse te dar um presente agora,
+    seria um dia cheio de sorrisos,
+    carinho e felicidade.
+  </p>
+
+  <p>
+    Melhoras, minha princesa! 🪻
+  </p>
+
+  <p>
+    Feito com carinho, especialmente para você. 💙
+  </p>
+
+</section>
+
+<footer>
+  Um cantinho só seu. 💙
+  <br>
+  Com carinho, do seu quase namorado.
+</footer>
+
+<script>
+
+function abrirPresentinho() {
+
+  const player = document.getElementById("musicPlayer");
+  const music = document.getElementById("music");
+
+  player.style.display = "block";
+
+  if (!music.src) {
+    music.src =
+      "https://www.youtube.com/embed/NwEoKpE5Sx4?autoplay=1&rel=0";
+  }
+
+  player.scrollIntoView({
+    behavior: "smooth",
+    block: "center"
+  });
+
+}
+
+function abrirCarta() {
+
+  const carta = document.getElementById("carta");
+
+  if (carta.style.display === "block") {
+    carta.style.display = "none";
+  } else {
+    carta.style.display = "block";
+
+    setTimeout(() => {
+      carta.scrollIntoView({
+        behavior: "smooth",
+        block: "center"
+      });
+    }, 100);
+  }
+
+}
+
+function criarDecoracao() {
+
+  const item = document.createElement("div");
+
+  item.className = "floating";
+
+  const emojis = ["💙", "🪻", "✨", "🤍"];
+
+  item.textContent =
+    emojis[Math.floor(Math.random() * emojis.length)];
+
+  item.style.left = Math.random() * 100 + "vw";
+  item.style.fontSize = (15 + Math.random() * 18) + "px";
+  item.style.animationDuration = (5 + Math.random() * 5) + "s";
+
+  document.body.appendChild(item);
+
+  setTimeout(() => {
+    item.remove();
+  }, 10000);
+
+}
+
+setInterval(criarDecoracao, 900);
+
+</script>
+
+</body>
+</html>
